@@ -1,6 +1,6 @@
 # Maratona_Discover
 
--[x] HTML
--[ ]CSS
--[ ]JavaScript
--[ ]Sistema de login
+- [x] HTML
+- [ ]CSS
+- [ ]JavaScript
+- [ ]Sistema de login
