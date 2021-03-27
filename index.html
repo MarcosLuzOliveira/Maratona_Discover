@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dev.finace$</title>
     <link rel="stylesheet" href="./src/style.css">
-    <script type="text/javascript" src="./src/script.js"></script>
-    <link rel="Icon" type="imagem/png" href="./assets/gold-pot.png"/><!--Favicon-->
+
+    <link rel="Icon" type="imagem/png" href="./assets/gold-pot.png" />
+    <!--Favicon-->
 
     <!-- =============Fonts=============== -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -15,11 +16,12 @@
 </head>
 
 <body>
-    <div hidden>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+    <div hidden>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a
+            href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
     <header>
         <h1 id="logo"><img src="assets/logo.svg" alt="Logo Dev finance"></h1>
     </header>
-    
+
     <main class="container">
         <section id="Balance">
             <h2 class="sr-only">Balanço</h2>
@@ -28,29 +30,27 @@
                     <span>Entradas</span>
                     <img src="assets/income.svg" alt="image de Entradas">
                 </h3>
-                <p>R$ 5.000,00</p>
+                <p id="incomeDisplay">R$ 0,00</p>
             </div>
             <div class="card">
                 <h3>
                     <span>Sáidas</span>
                     <img src="assets/expense.svg" alt="image de saiuda">
                 </h3>
-                <p>R$ 2.000,00</p>
+                <p id="expenseDisplay">R$ 0,00</p>
             </div>
             <div class="card total">
                 <h3>
                     <span>Total</span>
                     <img src="assets/total.svg" alt="image de total">
                 </h3>
-                <p>R$ 3.000,00</p>
+                <p id="totalDisplay">R$ 0,00</p>
             </div>
         </section>
         <section id="Transactions">
             <h2 class="sr-only">Transaçôes</h2>
-            
-            <a href="#" 
-            onclick="Modal.open()" 
-            class="button new"> + Nova Transação</a>
+
+            <a href="#" onclick="Modal.open()" class="button new"> + Nova Transação</a>
             <table id="data-table">
                 <thead>
                     <tr>
@@ -61,74 +61,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td class="Description">Luz</td>
-                        <td class="Expense"> R$ 500,00</td>
-                        <td class="Date">23/01/2021</td>
-                        <td><img src="assets/minus.svg" alt="Remover transação"></td>
-                    </tr>
-                    <tr>
-                        <td class="Description">Criação website</td>
-                        <td class="Income">- R$ 5.000,00</td>
-                        <td class="Date">23/01/2021</td>
-                        <td><img src="assets/minus.svg" alt="Remover transação"></td>
-                    </tr>
-                    <tr id='last_table'>
-                        <td class="Description ">Internet</td>
-                        <td class="Expense">- R$ 200,00</td>
-                        <td class="Date">23/01/2021</td>
-                        <td><img src="assets/minus.svg" alt="Remover transação"></td>
-                    </tr>
+
                 </tbody>
             </table>
         </section>
     </main>
     <div class="modal-overlay action">
         <div class="modal">
-            <div id="form">   
-            <h2>Nova Transação</h2>
-            <form action="">
-                <div class="input-group">
-                    <label class="sr-only" for="description">Descrição </label>
-                    <input 
-                    type="text" 
-                    id="description" 
-                    name="description"
-                    placeholder="Descrição"
-                    />
-                </div>
-                <div class="input-group">
-                    <label class="sr-only" for="amount">valor</label>
-                    <input 
-                    type="number" 
-                    id="amount" name="amount"
-                    step="0.01"
-                    placeholder="0,00"
-                    />
-                    <small class="help">Use o sinal - (negativo) para despesas e , (vírgula) para casas decimais</small>
-                </div>
+            <div id="form">
+                <h2>Nova Transação</h2>
+                <form action="" onsubmit='Form.submit(event)'>
+                    <div class="input-group">
+                        <label class="sr-only" for="description">Descrição </label>
+                        <input type="text" id="description" name="description" placeholder="Descrição" />
+                    </div>
+                    <div class="input-group">
+                        <label class="sr-only" for="amount">valor</label>
+                        <input type="number" id="amount" name="amount" step="0.01" placeholder="0.00" />
+                        <small class="help">Use o sinal - (negativo) para despesas e . (ponto) para casas
+                            decimais</small>
+                    </div>
 
-                <div class="input-group">
-                    <label class="sr-only" for="data">Data</label>
-                    <input 
-                    type="date" 
-                    id="date" 
-                    name="date"
-                    placeholder="01/01/2021"
-                    />
-                </div>    
-                <div class="input-group actions">
-                    <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
-                    <button type="submit">Salvar</button>
-                </div>    
-            </form>
-            </div> 
+                    <div class="input-group">
+                        <label class="sr-only" for="data">Data</label>
+                        <input type="date" id="date" name="date" placeholder="01/01/2021" />
+                    </div>
+                    <div class="input-group actions">
+                        <a href="#" onclick="Modal.close()" class="button cancel">Cancelar</a>
+                        <button type="submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
     <footer>
         <p><a href="https://app.rocketseat.com.br/dashboard" target="_blank">dev.finance$</a></p>
     </footer>
+    <script type="text/javascript" src="./src/script.js"></script>
 </body>
 
 </html>
