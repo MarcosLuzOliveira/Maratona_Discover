@@ -24,6 +24,7 @@ const Storage = {
         localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
     }
 }
+
 const Transaction = {
     all: Storage.get(),
     add(transaction) {
@@ -105,10 +106,11 @@ const DOM = {
 
 const Utils = {
     formatAmount(amount) {
-        value = Number(amount.replace(/\,\./g, "")) * 100
-        //value = Number(amount) * 100
 
-        return value;
+        // Estudar o bug que dava ao retornar apenas o value
+        value = amount * 100
+
+        return Math.round(value);
     },
     formatDate(date) {
         const splitedDate = date.split("-")
